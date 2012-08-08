@@ -37,7 +37,10 @@
         }
     );
     $("#search-container").mouseover(function () {
-        $("#s").focus();
+        $(this).addClass("active");
+        $("#s").focus().blur(function () {
+            $("#search-container").removeClass("active");
+        });
     });
 
     //smart-nav
@@ -73,9 +76,11 @@
         return $(this).siblings("label").text()
     });
     function makeAjaxSearch(result) {
-        $("#search_filtered").empty().show();
-        for (var i=0; i < result.length-1; i++) {
-            $("#search_filtered").append('<li><a href="' + result[i][1] + '">' + result[i][0] + '</a></li>');
+        if (result.length == 0) {
+            $("#search_filtered").empty().show().append('<li><a href="javascript:vold(0)"><strong>404</strong></a></li>');
+        } else {
+            $("#search_filtered").empty().show();
+            for (var i = 0; i < result.length - 1; i++) $("#search_filtered").append('<li><a href="' + result[i][1] + '">' + result[i][0] + '</a></li>');
         }
     }
     var delaySearch;
@@ -91,14 +96,12 @@
         });
     }
     $("#s").keyup(function () {
-        if ($("#s").val() == "") {
-            $("#search_filtered").fadeOut();
-        }else{
+        if ($("#s").val() != "") {
             if (delaySearch) {
                 clearTimeout(delaySearch)
             }
             delaySearch = setTimeout(startSearch, 250);
-        }
+        } else $("#search_filtered").fadeOut();
     });
 </script>
 </body>
