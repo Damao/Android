@@ -72,6 +72,34 @@
     $("#respond input,#respond textarea").attr("placeholder", function () {
         return $(this).siblings("label").text()
     });
+    function makeAjaxSearch(result) {
+        $("#search_filtered").empty().show();
+        for (var i=0; i < result.length-1; i++) {
+            $("#search_filtered").append('<li><a href="' + result[i][1] + '">' + result[i][0] + '</a></li>');
+        }
+    }
+    var delaySearch;
+    function startSearch() {
+        $.ajax({
+            type:"GET",
+            url:"<?php echo esc_url(home_url('/')); ?>",
+            data:"ajax=1&s=" + $("#s").val(),
+            dataType:'json',
+            success:function (result) {
+                makeAjaxSearch(result);
+            }
+        });
+    }
+    $("#s").keyup(function () {
+        if ($("#s").val() == "") {
+            $("#search_filtered").fadeOut();
+        }else{
+            if (delaySearch) {
+                clearTimeout(delaySearch)
+            }
+            delaySearch = setTimeout(startSearch, 250);
+        }
+    });
 </script>
 </body>
 </html>

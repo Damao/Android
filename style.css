@@ -244,10 +244,10 @@ a.button, a.button:visited,#submit {
 
 
 /* SEARCH AND MORE */
-.fn_search {position: absolute;width: 50px;height:28px;display: block;top:0;margin-bottom:7px;overflow:hidden;z-index:100;right:54px;
+.fn_search {position: absolute;width: 50px;height:28px;overflow:hidden;display: block;top:0;margin-bottom:7px;z-index:100;right:54px;
 -webkit-transition: width 0.4s ease;-moz-transition: width 0.4s ease;transition: width 0.4s ease;}
 .fn_search #search-btn {width:50px;height:28px;background:url(images/icon_search.png) no-repeat;float:left;}
-.fn_search-inner {width:245px;}
+.fn_search .search-inner {width:245px;}
 .fn_search:hover, .fn_search.active {width:245px;}
 .fn_search .bottom, .fn_search .left, .fn_search .right {position: absolute;background-color: #a2a2a2}
 .fn_search .bottom {width: 214px;height: 1px;top: 24px;left: 0}
@@ -261,6 +261,9 @@ a.button, a.button:visited,#submit {
 .fn_search:hover #search-btn {background-position: 0 -28px}
 .fn_search form input:focus {color: #222;font-weight: bold}
 .fn_search #searchsubmit{display:none;}
+.fn_search_filtered{background-color:rgba(255, 255, 255, .95);position:absolute;top:28px;right:60px;z-index:100;}
+.fn_search_filtered a{padding: 7px 5px 7px 10px;display:block;width: 168px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;font-size:12px;}
+.fn_search_filtered a:hover{background-color:rgba(0, 0, 0, 0.03);text-decoration:none;}
 .moremenu {position: absolute;right:0;top:0;width: 50px;height: 28px;display: block;margin-bottom: 7px;overflow: hidden;-webkit-transition: width 0.25s ease;-moz-transition: width 0.25s ease;transition: width 0.25s ease;}
 .moremenu #more-btn {width:40px;height:28px;background:url(images/icon_more.png) no-repeat;border-left:1px solid #CCC;float:left;cursor:pointer;}
 .moremenu:hover #more-btn {background-position:0 -28px;}
