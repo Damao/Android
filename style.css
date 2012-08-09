@@ -118,7 +118,7 @@ html, body{
 
 body{
 	color:#222;
-	font:16px/1.6333 Roboto, "Microsoft JhengHei";
+	font:16px/1.6333 Roboto, "Microsoft YaHei";
 	font-weight:400;
 	letter-spacing:.1px;
 	padding:0 10px; }
@@ -326,7 +326,7 @@ a.button, a.button:visited, #submit{
 }
 #smart-nav li{
 	list-style-type:none;
-	font-size:12px;
+	font-size:14px;
 	margin:0;
 	padding:0;
 }
@@ -680,8 +680,8 @@ a:hover{
 .hentry,
 .no-results{
 	border-bottom:1px solid #ddd;
-	margin:0 0 1.625em;
-	padding:0 0 1.625em;
+	margin:0 0 100px;
+	padding:0 0 100px;
 	position:relative;
 }
 .hentry:last-child,
@@ -699,7 +699,7 @@ a:hover{
 }
 .entry-title{
 	color:#222;
-	font-size:24px;
+	font-size:30px;
 	line-height:1.5em;
 	padding-bottom:.3em;
 }
