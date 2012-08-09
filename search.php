@@ -56,7 +56,6 @@ if ($search_ajax) {
 
             <div class="entry-content">
                 <p><?php _e('Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'android'); ?></p>
-                <?php get_search_form(); ?>
             </div>
             <!-- .entry-content -->
         </article><!-- #post-0 -->

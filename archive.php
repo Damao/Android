@@ -59,7 +59,6 @@ get_header(); ?>
 
 					<div class="entry-content">
 						<p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'android' ); ?></p>
-						<?php get_search_form(); ?>
 					</div><!-- .entry-content -->
 				</article><!-- #post-0 -->
 
