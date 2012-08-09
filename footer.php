@@ -91,7 +91,7 @@
         $.ajax({
             type:"GET",
             url:"<?php echo esc_url(home_url('/')); ?>",
-            data:"ajax=1&s=" + $("#s").val(),
+            data:"s=" + $("#s").val(),
             dataType:'json',
             success:function (result) {
                 makeAjaxSearch(result);
@@ -106,6 +106,39 @@
             delaySearch = setTimeout(startSearch, 250);
         } else $("#search_filtered").fadeOut();
     });
+
+
+    //ajax comments
+    $('#commentform').prepend('<div id="ajax-comment-info" ></div>');
+    $('#commentform').submit(function () {
+        var infodiv = $('#ajax-comment-info');
+        //serialize and store form data in a variable
+        var formdata = $('#commentform').serialize();
+        console.log(formdata);
+        //Add a status message
+        infodiv.html('<p>Processing...</p>');
+        //Extract action URL from $('#commentform')
+        var formurl = $('#commentform').attr('action');
+        //Post Form with data
+        $.ajax({
+            type:'post',
+            url:formurl,
+            data:formdata,
+            error:function (XMLHttpRequest, textStatus, errorThrown) {
+                infodiv.html('<div class="ajax-error" >'+XMLHttpRequest.responseText.match(/<p>(.*?)<\/p>/g)+'</div>');
+            },
+            success:function (data, textStatus) {
+                if (data == "success")
+                    infodiv.html('<p class="ajax-success" >Thanks for your comment. We appreciate your response.</p>');
+                else
+                    infodiv.html('<p class="ajax-error" >Error in processing your form.</p>');
+                $('#commentform').find('textarea[name=comment]').val('');
+            }
+        });
+        return false;
+    });
+
+
 </script>
 </body>
 </html>

@@ -230,3 +230,29 @@ function android_related()
         }
     }
 }
+
+
+
+//ajax-comments
+
+add_action('comment_post', 'ajaxcomments_stop_for_ajax',20, 2);
+function ajaxcomments_stop_for_ajax($comment_ID, $comment_status){
+    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
+        //If AJAX Request Then
+        switch($comment_status){
+            case '0':
+                //notify moderator of unapproved comment
+                wp_notify_moderator($comment_ID);
+            case '1': //Approved comment
+                echo "success";
+                $commentdata=&get_comment($comment_ID, ARRAY_A);
+                $post=&get_post($commentdata['comment_post_ID']); //Notify post author of comment
+                if ( get_option('comments_notify') && $commentdata['comment_approved'] && $post->post_author != $commentdata['user_ID'] )
+                    wp_notify_postauthor($comment_ID, $commentdata['comment_type']);
+                break;
+            default:
+                echo "error";
+        }
+        exit;
+    }
+}

@@ -6,8 +6,8 @@
  * @subpackage Twenty_Eleven
  * @since Android 1.0
  */
-$search_ajax = $_GET["ajax"];
-if ($search_ajax) {
+
+if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
     if (have_posts()) : ?>
         [
     <?php while (have_posts()) : the_post(); ?>
