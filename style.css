@@ -121,7 +121,7 @@ body{
 	font:16px/1.6333 Roboto, "Microsoft YaHei";
 	font-weight:400;
 	letter-spacing:.1px;
-	padding:0 10px; }
+}
 
 .ui-hide{ display:none !important; }
 .clearfix:before, .clearfix:after{ content:"."; display:block; height:0; visibility:hidden }
@@ -1840,7 +1840,7 @@ a.comment-reply-link > span{
 
 /* Post author highlighting */
 .commentlist > li.bypostauthor{
-	background:#ddd;
+	background-color:rgba(221, 221, 221, .3);
 	border-color:#d3d3d3;
 }
 .commentlist > li.bypostauthor .comment-meta{
@@ -1858,6 +1858,38 @@ a.comment-reply-link > span{
 .commentlist .children > li.bypostauthor{
 	background-color:rgba(153, 204, 0, .1);
 	border-color:rgb(153, 204, 0);
+}
+
+/*ajax comments*/
+@-webkit-keyframes progressPulse {
+		  from { background-color:rgba(250,255,103, .3); -webkit-box-shadow: 0 0 9px rgba(250,255,103, .2); }
+		  50% { background-color: rgba(250,255,103, .7); -webkit-box-shadow: 0 0 18px rgba(250,255,103, .7); }
+		  to { background-color: rgba(250,255,103, .3); -webkit-box-shadow: 0 0 9px rgba(250,255,103, .2); }
+		}
+@-webkit-keyframes errorPulse {
+		  from { background-color:rgba(242, 203, 206, .3); -webkit-box-shadow: 0 0 9px rgba(242, 203, 206, .2); }
+		  50% { background-color: rgba(242, 203, 206, .7); -webkit-box-shadow: 0 0 18px rgba(242, 203, 206, .7); }
+		  to { background-color: rgba(242, 203, 206, .3); -webkit-box-shadow: 0 0 9px rgba(242, 203, 206, .2); }
+		}
+.ajax-success,.ajax-error,.ajax-progress{
+	background-color: rgba(153, 204, 0, .1);
+	padding: 3px;
+	border-left: 1px solid #9C0;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+	font-size:12px;
+	-webkit-animation-duration: 1s;-webkit-animation-iteration-count: infinite;
+}
+.ajax-error p{margin:0 !important;}
+.ajax-error{
+	background-color: rgba(242, 203, 206, .3);
+	border-left: 1px solid #F76A6C;
+	-webkit-animation-name: errorPulse;
+}
+.ajax-progress{
+	background-color: rgba(250,255,103, .3);
+	border-left: 1px solid #D8D836;
+	-webkit-animation-name: progressPulse;
 }
 
 /* sidebar-page.php comments */
@@ -1961,6 +1993,7 @@ a.comment-reply-link > span{
 	color:#373737;
 	font-size:24px;
 	line-height:30px;
+	margin-bottom:10px;
 }
 #cancel-comment-reply-link{
 	color:#888;

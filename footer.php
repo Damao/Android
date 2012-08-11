@@ -116,7 +116,7 @@
         var formdata = $('#commentform').serialize();
         console.log(formdata);
         //Add a status message
-        infodiv.html('<p>Processing...</p>');
+        infodiv.html('<div class="ajax-progress">真的是AJAX提交数据中... ... 请耐心等待</div>');
         //Extract action URL from $('#commentform')
         var formurl = $('#commentform').attr('action');
         //Post Form with data
@@ -129,9 +129,9 @@
             },
             success:function (data, textStatus) {
                 if (data == "success")
-                    infodiv.html('<p class="ajax-success" >Thanks for your comment. We appreciate your response.</p>');
+                    infodiv.html('<div class="ajax-success" >评论成功,刷新后可见.</div>');
                 else
-                    infodiv.html('<p class="ajax-error" >Error in processing your form.</p>');
+                    infodiv.html('<div class="ajax-error" >服务器脑瘫,请再试一次.</div>');
                 $('#commentform').find('textarea[name=comment]').val('');
             }
         });
