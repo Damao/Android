@@ -4,7 +4,7 @@ Theme URI: http://ooxx.me/theme-android.orz
 Author: bigCat
 Author URI: http://ooxx.me/
 Description: base on Twenty Eleven and Android developer Design.
-Version: 0.1
+Version: 0.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: light, white,gray,  two-columns, left-sidebar,  fixed-width, custom-background,editor-style, featured-image-header, featured-images, full-width-template, microformats, post-formats, sticky-post, theme-options, translation-ready
@@ -264,13 +264,13 @@ a.button, a.button:visited, #submit{
 .moremenu{ position:absolute; right:0; top:0; width:50px; height:28px; display:block; margin-bottom:7px; overflow:hidden; -webkit-transition:width 0.25s ease; -moz-transition:width 0.25s ease; transition:width 0.25s ease; }
 .moremenu #more-btn{ width:40px; height:28px; background:url(images/icon_more.png) no-repeat; border-left:1px solid #CCC; float:left; cursor:pointer; }
 .moremenu:hover #more-btn{ background-position:0 -28px; }
-.morehover{ position:absolute; right:6px; top:-6px; width:40px; height:35px; z-index:99; overflow:hidden; opacity:0; -webkit-transform-origin:100% 0%; -moz-transform-origin:100% 0%; transform-origin:100% 0%;
+.morehover{ position:absolute; right:6px; top:-6px; width:40px; height:35px; z-index:101; overflow:hidden; opacity:0; -webkit-transform-origin:100% 0%; -moz-transform-origin:100% 0%; transform-origin:100% 0%;
 	-webkit-transition-property:-webkit-opacity; -webkit-transition-duration:.25s; -webkit-transition-timing-function:ease;
 	-moz-transition-property:-webkit-opacity; -moz-transition-duration:.25s; -moz-transition-timing-function:ease;
 	-transition-property:-webkit-opacity; -transition-duration:.25s; -transition-timing-function:ease; }
-.morehover:hover{ opacity:1; height:385px; width:268px; -webkit-transition-property:height, -webkit-opacity; }
+.morehover:hover,.morehover.hover{ opacity:1;height:385px; width:268px; -webkit-transition-property:height, -webkit-opacity; }
 .morehover .top{ width:268px; height:39px; background:url(images/more_top.png) no-repeat; }
-.morehover .mid{ width:228px; background:url(images/more_mid.png) repeat-y; padding:10px 20px }
+.morehover .mid{max-height: 300px;overflow-y: auto;width:228px; background:url(images/more_mid.png) repeat-y; padding:10px 20px }
 .morehover .mid ul:last-child{ margin-bottom:0; }
 .morehover .mid .header{ border-bottom:1px solid #ccc; font-weight:bold; }
 .morehover .bottom{ width:268px; height:6px; background:url(images/more_bottom.png) no-repeat; }
