@@ -197,7 +197,7 @@ a.button, a.button:visited, #submit{
 /* =Structure
 ----------------------------------------------- */
 
-.lay_wrap{ max-width:1000px; }
+.lay_wrap{ max-width:1000px;clear:both;}
 
 /* =Header
 ----------------------------------------------- */
@@ -288,6 +288,7 @@ a.button, a.button:visited, #submit{
 	width:180px;
 	margin-right:10px;
 	float:left;
+	_display:none;
 }
 #devdoc-nav{
 	outline:none;
@@ -1798,6 +1799,7 @@ section.ephemera .entry-title a span{
 	padding:0;
 	position:absolute;
 	top:0;
+	_display:none;
 }
 .commentlist > li:before{
 	content:url(images/comment-arrow.png);
@@ -1951,6 +1953,12 @@ a.comment-reply-link > span{
 #respond .comment-form-url:after,
 #respond .comment-form-comment:after{
 	left:auto; right:0;
+}
+.is_ie #respond .comment-form-author label,
+.is_ie #respond .comment-form-email label,
+.is_ie #respond .comment-form-url label,
+.is_ie #respond .comment-form-comment label{
+	display:block;
 }
 #respond .comment-form-author label,
 #respond .comment-form-email label,
@@ -2288,4 +2296,8 @@ p.comment-form-comment{
 
 #ie8 section.feature-image.large img{
 	width:100%;
-} 
+}
+
+#msg_ie{display:none;background:#FF0040;color:#FFEAF0;padding:1px 5px;position:fixed;_position:absolute;left:0;top:0;z-index:1000;}
+.is_ie #msg_ie{display:block;}
+#msg_ie a{color:#FFF;text-decoration:underline}

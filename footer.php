@@ -23,7 +23,7 @@
     </div>
 </footer><!-- #colophon -->
 </div><!-- #page -->
-
+<div id="msg_ie">您使用的是IE浏览器,请<a href="https://www.google.com/intl/zh-CN/chrome/browser/" target="blank">下载Chrome</a>来获得更好的体验</div>
 <?php wp_footer(); ?>
 <script src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.js"></script>
 <script type="text/javascript">
