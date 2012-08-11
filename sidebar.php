@@ -7,7 +7,7 @@
  * @since Android 1.0
  */
 ?>
-
+<?php if (!is_mobile()) { ?>
 <div id="side-nav" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
     <div id="devdoc-nav">
         <a class="totop" href="#top" data-g-event="left-nav-top">To Top</a>
@@ -49,3 +49,4 @@
     </div>
 
 </div>
+<?php } ?>

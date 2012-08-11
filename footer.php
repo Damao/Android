@@ -28,6 +28,7 @@
 <script src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.js"></script>
 <script type="text/javascript">
     var home_url="<?php echo esc_url(home_url('/')); ?>";
+    var is_mobile="<?php if(is_mobile()){echo 'true';}?>";
 </script>
 <script src="<?php bloginfo('stylesheet_directory'); ?>/js/android.js"></script>
 

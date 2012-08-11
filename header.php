@@ -22,7 +22,7 @@
 <html id="ie9" class="is_ie" <?php language_attributes(); ?>>
 <![endif]-->
 <!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
-<html <?php language_attributes(); ?>>
+<html <?php if(is_mobile()){echo 'class="is_mobile" ';} language_attributes(); ?>>
 <!--<![endif]-->
 <head>
     <meta charset="<?php bloginfo('charset'); ?>"/>

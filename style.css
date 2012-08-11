@@ -197,7 +197,7 @@ a.button, a.button:visited, #submit{
 /* =Structure
 ----------------------------------------------- */
 
-.lay_wrap{ max-width:1000px;clear:both;}
+.lay_wrap{ max-width:1000px; clear:both; }
 
 /* =Header
 ----------------------------------------------- */
@@ -268,9 +268,9 @@ a.button, a.button:visited, #submit{
 	-webkit-transition-property:-webkit-opacity; -webkit-transition-duration:.25s; -webkit-transition-timing-function:ease;
 	-moz-transition-property:-webkit-opacity; -moz-transition-duration:.25s; -moz-transition-timing-function:ease;
 	-transition-property:-webkit-opacity; -transition-duration:.25s; -transition-timing-function:ease; }
-.morehover:hover,.morehover.hover{ opacity:1;height:385px; width:268px; -webkit-transition-property:height, -webkit-opacity; }
+.morehover:hover, .morehover.hover{ opacity:1; height:385px; width:268px; -webkit-transition-property:height, -webkit-opacity; }
 .morehover .top{ width:268px; height:39px; background:url(images/more_top.png) no-repeat; }
-.morehover .mid{max-height: 300px;overflow-y: auto;width:228px; background:url(images/more_mid.png) repeat-y; padding:10px 20px }
+.morehover .mid{ max-height:300px; overflow-y:auto; width:228px; background:url(images/more_mid.png) repeat-y; padding:10px 20px }
 .morehover .mid ul:last-child{ margin-bottom:0; }
 .morehover .mid .header{ border-bottom:1px solid #ccc; font-weight:bold; }
 .morehover .bottom{ width:268px; height:6px; background:url(images/more_bottom.png) no-repeat; }
@@ -1547,9 +1547,9 @@ p.attachment a{
 	display:inline-block;
 	padding:10px 20px;
 	border-radius:2px;
-	-webkit-animation-name: greenPulse;
-	-webkit-animation-duration: 2s;
-	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-name:greenPulse;
+	-webkit-animation-duration:2s;
+	-webkit-animation-iteration-count:infinite;
 }
 
 /* =Navigation
@@ -1873,25 +1873,25 @@ a.comment-reply-link > span{
 		  50% { background-color: rgba(242, 203, 206, .7); -webkit-box-shadow: 0 0 18px rgba(242, 203, 206, .7); }
 		  to { background-color: rgba(242, 203, 206, .3); -webkit-box-shadow: 0 0 9px rgba(242, 203, 206, .2); }
 		}
-.ajax-success,.ajax-error,.ajax-progress{
-	background-color: rgba(153, 204, 0, .1);
-	padding: 3px;
-	border-left: 1px solid #9C0;
-	border-top-right-radius: 2px;
-	border-bottom-right-radius: 2px;
+.ajax-success, .ajax-error, .ajax-progress{
+	background-color:rgba(153, 204, 0, .1);
+	padding:3px;
+	border-left:1px solid #9C0;
+	border-top-right-radius:2px;
+	border-bottom-right-radius:2px;
 	font-size:12px;
-	-webkit-animation-duration: 1s;-webkit-animation-iteration-count: infinite;
+	-webkit-animation-duration:1s; -webkit-animation-iteration-count:infinite;
 }
-.ajax-error p{margin:0 !important;}
+.ajax-error p{ margin:0 !important; }
 .ajax-error{
-	background-color: rgba(242, 203, 206, .3);
-	border-left: 1px solid #F76A6C;
-	-webkit-animation-name: errorPulse;
+	background-color:rgba(242, 203, 206, .3);
+	border-left:1px solid #F76A6C;
+	-webkit-animation-name:errorPulse;
 }
 .ajax-progress{
-	background-color: rgba(250,255,103, .3);
-	border-left: 1px solid #D8D836;
-	-webkit-animation-name: progressPulse;
+	background-color:rgba(250, 255, 103, .3);
+	border-left:1px solid #D8D836;
+	-webkit-animation-name:progressPulse;
 }
 
 /* sidebar-page.php comments */
@@ -2298,6 +2298,18 @@ p.comment-form-comment{
 	width:100%;
 }
 
-#msg_ie{display:none;background:#FF0040;color:#FFEAF0;padding:1px 5px;position:fixed;_position:absolute;left:0;top:0;z-index:1000;}
-.is_ie #msg_ie{display:block;}
-#msg_ie a{color:#FFF;text-decoration:underline}
+#msg_ie{ display:none; background:#FF0040; color:#FFEAF0; padding:1px 5px; position:fixed; _position:absolute; left:0; top:0; z-index:1000; }
+.is_ie #msg_ie{ display:block; }
+#msg_ie a{ color:#FFF; text-decoration:underline }
+
+/*mobile*/
+
+.is_mobile #quicknav,
+.is_mobile #btn-quicknav{ display:none !important; }
+.is_mobile #header{padding-top:0;}
+.is_mobile #header .lay_wrap{height:auto;}
+.is_mobile #header .logo,
+.is_mobile #header .nav-x,
+.is_mobile #header .menu-container{
+	clear:both;position:relative;height:35px;
+}
