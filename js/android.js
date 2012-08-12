@@ -96,7 +96,7 @@ $('#commentform').submit(function () {
         url:formurl,
         data:formdata,
         error:function (XMLHttpRequest, textStatus, errorThrown) {
-            infodiv.html('<div class="ajax-error" >'+XMLHttpRequest.responseText.match(/<p>(.*?)<\/p>/g)+'</div>');
+            infodiv.html('<div class="ajax-error" >' + XMLHttpRequest.responseText.match(/<p>(.*?)<\/p>/g) + '</div>');
         },
         success:function (data, textStatus) {
             if (data == "success")
@@ -109,4 +109,66 @@ $('#commentform').submit(function () {
     return false;
 });
 
-$(".morehover").hover(function(){$(this).toggleClass("hover")});
+
+//thread comment
+function moveEnd(id) {
+    obj = document.getElementById(id);
+    obj.focus();
+    var len = obj.value.length;
+    if (document.selection) {
+        var sel = obj.createTextRange();
+        sel.moveStart('character', len);
+        sel.collapse();
+        sel.select();
+    } else if (typeof obj.selectionStart == 'number' && typeof obj.selectionEnd == 'number') {
+        obj.selectionStart = obj.selectionEnd = len;
+    }
+}
+addComment = {moveForm:function (d, f, i, c) {
+    var m = this, a, h = m.I(d), b = m.I(i), l = m.I("cancel-comment-reply-link"), j = m.I("comment_parent"), k = m.I("comment_post_ID");
+    if (!h || !b || !l || !j) {
+        return
+    }
+    m.respondId = i;
+    c = c || false;
+    if (!m.I("wp-temp-form-div")) {
+        a = document.createElement("div");
+        a.id = "wp-temp-form-div";
+        a.style.display = "none";
+        b.parentNode.insertBefore(a, b)
+    }
+    h.parentNode.insertBefore(b, h.nextSibling);
+    if (k && c) {
+        k.value = c
+    }
+    j.value = f;
+    l.style.display = "";
+    l.onclick = function () {
+        var n = addComment, e = n.I("wp-temp-form-div"), o = n.I(n.respondId);
+        if (!e || !o) {
+            return
+        }
+        n.I("comment_parent").value = "0";
+        e.parentNode.insertBefore(o, e);
+        e.parentNode.removeChild(e);
+        this.style.display = "none";
+        this.onclick = null;
+        return false
+    };
+    try {
+        if ($("#comment").val()=="") {
+            console.log($("#comment").val());
+            $("#comment").val('@' + $("#" + d).find(".fn").eq(0).text() + ' ');
+        }
+        moveEnd("comment");
+    } catch (g) {
+    }
+    return false
+}, I:function (a) {
+    return document.getElementById(a)
+}};
+
+
+$(".morehover").hover(function () {
+    $(this).toggleClass("hover")
+});

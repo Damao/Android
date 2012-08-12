@@ -59,7 +59,7 @@
       * to support sites with threaded comments (when in use).
       */
     if (is_singular() && get_option('thread_comments'))
-        wp_enqueue_script('comment-reply');
+//        wp_enqueue_script('comment-reply'); 减少请求数
 
     /* Always have wp_head() just before the closing </head>
       * tag of your theme, or you will break many plugins, which
