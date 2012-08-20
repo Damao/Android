@@ -770,6 +770,8 @@ a:hover{
 .entry-content #s{
 	width:75%;
 }
+.entry-content ul {list-style: disc inside none;margin: 1em 0 1em 40px;color: #888;}
+.entry-content ol {list-style: decimal inside none;margin: 1em 0 1em 40px;color: #888;}
 .comment-content ul,
 .comment-content ol{
 	margin-bottom:1.625em;
