@@ -357,7 +357,7 @@ function android_mailtocommenter($cid){
     $admin_email = get_option('admin_email');
     $result = 0;
     foreach ($output as $name){
-        if ((array_key_exists($name,$mails))and ($mails["$name"]!=$admin_email) and ($mails["$name"]!=$owner_email)){
+        if ((array_key_exists($name,$mails)) and ($mails["$name"]!=$owner_email)){
             $to = $mails["$name"];
             $filter = android_mailtocommenter_filter($commentdata,$name);
             $subject =$filter[0];
