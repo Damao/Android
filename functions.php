@@ -181,7 +181,7 @@ function article_nav($content)
         }
         if (is_singular()) {
             $content = '<textarea id="smart-nav-containter" class="ui-hide"><li id="smart-nav-recent" class="nav-section"><div class="nav-section-header"><a href="javascript:vold(0)">Article Nav</a></div><ul>'
-                . $ul_li . '<li><a href="#comments">查看评论</a></li><li><a href="#respond">发表评论</a></li></ul></li></textarea>' . $content;
+                . $ul_li . '<li><a href="#respond">发表评论</a></li></ul></li></textarea>' . $content;
         }
     }
 

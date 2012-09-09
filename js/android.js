@@ -83,6 +83,7 @@ $("#s").keyup(function () {
 $('#commentform').prepend('<div id="ajax-comment-info" ></div>');
 $('#commentform').submit(function () {
     var infodiv = $('#ajax-comment-info');
+    infodiv.fadeIn();
     //serialize and store form data in a variable
     var formdata = $('#commentform').serialize();
     console.log(formdata);
@@ -99,11 +100,15 @@ $('#commentform').submit(function () {
             infodiv.html('<div class="ajax-error" >' + XMLHttpRequest.responseText.match(/<p>(.*?)<\/p>/g) + '</div>');
         },
         success:function (data, textStatus) {
-            if (data == "success")
+            if (data == "success") {
                 infodiv.html('<div class="ajax-success" >评论成功,刷新后可见.</div>');
-            else
+                $('#commentform').find('textarea[name=comment]').val('');
+                setTimeout(function () {
+                    $("#ajax-comment-info").fadeOut();
+                }, 3000);
+            } else {
                 infodiv.html('<div class="ajax-error" >服务器脑瘫,请再试一次.</div>');
-            $('#commentform').find('textarea[name=comment]').val('');
+            }
         }
     });
     return false;
@@ -156,8 +161,7 @@ addComment = {moveForm:function (d, f, i, c) {
         return false
     };
     try {
-        if ($("#comment").val()=="") {
-            console.log($("#comment").val());
+        if ($("#comment").val() == "" || /@/.test($("#comment").val())) {//切换用户的时候@人也要变一下...
             $("#comment").val('@' + $("#" + d).find(".fn").eq(0).text() + ' ');
         }
         moveEnd("comment");

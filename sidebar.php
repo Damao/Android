@@ -31,6 +31,8 @@
                         query_posts('showposts=5&cat=' . get_query_var('cat'));
                     } else if (is_tag()) {
                         query_posts('showposts=5&tag=' . get_query_var('tag'));
+                    } else if (is_page()) {
+                        query_posts('post_type=page');
                     } else {
                         query_posts('showposts=5');
                     }

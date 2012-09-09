@@ -294,7 +294,7 @@ a.button, a.button:visited, #submit{
 #devdoc-nav{
 	outline:none;
 	margin-top:20px;
-	height:100%; overflow:auto;
+	height:95%; overflow:auto;
 	width:160px; }
 
 #devdoc-nav h2{
