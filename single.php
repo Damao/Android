@@ -10,6 +10,9 @@
 get_header(); ?>
 <?php get_sidebar(); ?>
 		<div id="primary">
+            <div class="adsense">
+                <a href="http://miao.in" target="_blank"><img width="468" height="60" src="http://ooxx.me/images/blog/mtBanner.png" border="0" /></a>
+            </div>
 			<div id="content" role="main">
 
 				<?php while ( have_posts() ) : the_post(); ?>

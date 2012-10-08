@@ -7,11 +7,21 @@ $("#btn-quicknav").toggle(function () {
         $("#quicknav").slideUp();
     }
 );
-$("#search-container").mouseover(function () {
-    $(this).addClass("active");
+function searchActive(){
+    $("#search-container").addClass("active");
     $("#s").focus().blur(function () {
         $("#search-container").removeClass("active");
     });
+}
+$("#search-container").mouseover(function () {
+    searchActive();
+});
+$(document).keydown(function(e){
+//    console.log(e.keyCode);
+    if (e.keyCode == 191) {
+        searchActive();
+        return false;
+    }
 });
 
 //smart-nav
@@ -74,7 +84,7 @@ $("#s").keyup(function () {
         if (delaySearch) {
             clearTimeout(delaySearch)
         }
-        delaySearch = setTimeout(startSearch, 250);
+        delaySearch = setTimeout(startSearch, 200);
     } else $("#search_filtered").fadeOut();
 });
 
@@ -101,7 +111,8 @@ $('#commentform').submit(function () {
         },
         success:function (data, textStatus) {
             if (data == "success") {
-                infodiv.html('<div class="ajax-success" >评论成功,刷新后可见.</div>');
+                infodiv.html('<div class="ajax-success" >评论成功.</div>');
+                $("#respond").before('<ul class="children"> <li class="comment"> <article class="comment"> <footer> <div class="comment-author vcard"> <strong>You</strong> <span class="says">said:</span></div> </footer> <div class="comment-content"><p>'+$('#commentform').find('textarea[name=comment]').val()+'</p> </div></article> </li> </ul> ');
                 $('#commentform').find('textarea[name=comment]').val('');
                 setTimeout(function () {
                     $("#ajax-comment-info").fadeOut();
