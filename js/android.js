@@ -7,7 +7,7 @@ $("#btn-quicknav").toggle(function () {
         $("#quicknav").slideUp();
     }
 );
-function searchActive(){
+function searchActive() {
     $("#search-container").addClass("active");
     $("#s").focus().blur(function () {
         $("#search-container").removeClass("active");
@@ -16,12 +16,23 @@ function searchActive(){
 $("#search-container").mouseover(function () {
     searchActive();
 });
-$(document).keydown(function(e){
-//    console.log(e.keyCode);
+function keydownSearch(e) {
     if (e.keyCode == 191) {
+        e.preventDefault();
         searchActive();
         return false;
     }
+}
+$(document).bind("keydown.search", function (e) {
+    keydownSearch(e)
+});
+$("input,textarea").focus(function () {
+    $(document).unbind("keydown.search");
+});
+$("input,textarea").blur(function () {
+    $(document).bind("keydown.search", function (e) {
+        keydownSearch(e)
+    });
 });
 
 //smart-nav
@@ -96,7 +107,7 @@ $('#commentform').submit(function () {
     infodiv.fadeIn();
     //serialize and store form data in a variable
     var formdata = $('#commentform').serialize();
-    console.log(formdata);
+//    console.log(formdata);
     //Add a status message
     infodiv.html('<div class="ajax-progress">真的是AJAX提交数据中... ... 请耐心等待</div>');
     //Extract action URL from $('#commentform')
@@ -112,7 +123,7 @@ $('#commentform').submit(function () {
         success:function (data, textStatus) {
             if (data == "success") {
                 infodiv.html('<div class="ajax-success" >评论成功.</div>');
-                $("#respond").before('<ul class="children"> <li class="comment"> <article class="comment"> <footer> <div class="comment-author vcard"> <strong>You</strong> <span class="says">said:</span></div> </footer> <div class="comment-content"><p>'+$('#commentform').find('textarea[name=comment]').val()+'</p> </div></article> </li> </ul> ');
+                $("#respond").before('<ul class="children"> <li class="comment"> <article class="comment"> <footer> <div class="comment-author vcard"> <strong>You</strong> <span class="says">said:</span></div> </footer> <div class="comment-content"><p>' + $('#commentform').find('textarea[name=comment]').val() + '</p> </div></article> </li> </ul> ');
                 $('#commentform').find('textarea[name=comment]').val('');
                 setTimeout(function () {
                     $("#ajax-comment-info").fadeOut();
