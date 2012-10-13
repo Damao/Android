@@ -1,5 +1,8 @@
 <?php
 
+
+$is_ad = false; // 庙的广告,默认关闭
+
 function console($log){
     echo <<<EOF
 <script>console.log("$log")</script>

@@ -4,7 +4,7 @@ Theme URI: http://ooxx.me/theme-android.orz
 Author: bigCat
 Author URI: http://ooxx.me/
 Description: Android developer Design.
-Version: 1.0
+Version: 2.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: light, white,gray,  two-columns, left-sidebar,  fixed-width, custom-background,editor-style, featured-image-header, featured-images, full-width-template, microformats, post-formats, sticky-post, theme-options, translation-ready
@@ -99,7 +99,7 @@ body{
 /* --------------------------------------------------------------------------
 Buttons
 */
-.button, a.button, #submit{ border-image:initial; -webkit-border-radius:2px; -moz-border-radius:2px; border-radius:2px; cursor:pointer; width: 12px; }
+.button, a.button, #submit{ border-image:initial; -webkit-border-radius:2px; -moz-border-radius:2px; border-radius:2px; cursor:pointer;}
 .button, a.button, #submit{
 	background-color:#09c;
 	background-image:-webkit-gradient(linear, left top, left bottom, from(#2faddb), to(#09c));

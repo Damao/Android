@@ -20,7 +20,6 @@ function keydownSearch(e) {
     if (e.keyCode == 191) {
         e.preventDefault();
         searchActive();
-        return false;
     }
 }
 $(document).bind("keydown.search", function (e) {
@@ -28,12 +27,11 @@ $(document).bind("keydown.search", function (e) {
 });
 $("input,textarea").focus(function () {
     $(document).unbind("keydown.search");
-});
-$("input,textarea").blur(function () {
-    $(document).bind("keydown.search", function (e) {
-        keydownSearch(e)
+}).blur(function () {
+        $(document).bind("keydown.search", function (e) {
+            keydownSearch(e)
+        });
     });
-});
 
 //smart-nav
 if ($("#side-nav").length > 0) {
@@ -82,7 +80,7 @@ var delaySearch;
 function startSearch() {
     $.ajax({
         type:"GET",
-        url:home_url,
+        url:home_url, //这玩意儿来自php,囧
         data:"s=" + $("#s").val(),
         dataType:'json',
         success:function (result) {
@@ -118,11 +116,11 @@ $('#commentform').submit(function () {
         url:formurl,
         data:formdata,
         error:function (XMLHttpRequest, textStatus, errorThrown) {
-            infodiv.html('<div class="ajax-error" >' + XMLHttpRequest.responseText.match(/<p>(.*?)<\/p>/g) + '</div>');
+            infodiv.html('<div class="ajax-error" >' + XMLHttpRequest.responseText.match(/<p>(.*?)<\/p>/g) + '<br>textStatus:'+ textStatus + '<br>errorThrown:'+errorThrown + '</div>');
         },
         success:function (data, textStatus) {
             if (data == "success") {
-                infodiv.html('<div class="ajax-success" >评论成功.</div>');
+                infodiv.html('<div class="ajax-success" >评论成功. textStatus:'+textStatus+'</div>');
                 $("#respond").before('<ul class="children"> <li class="comment"> <article class="comment"> <footer> <div class="comment-author vcard"> <strong>You</strong> <span class="says">said:</span></div> </footer> <div class="comment-content"><p>' + $('#commentform').find('textarea[name=comment]').val() + '</p> </div></article> </li> </ul> ');
                 $('#commentform').find('textarea[name=comment]').val('');
                 setTimeout(function () {
@@ -139,7 +137,7 @@ $('#commentform').submit(function () {
 
 //thread comment
 function moveEnd(id) {
-    obj = document.getElementById(id);
+    var obj = document.getElementById(id);
     obj.focus();
     var len = obj.value.length;
     if (document.selection) {

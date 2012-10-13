@@ -15,9 +15,11 @@
 get_header(); ?>
 <?php get_sidebar(); ?>
 		<div id="primary">
-            <div class="adsense">
+            <?php if($is_ad){ ?>
+            <div class="miao">
                 <a href="http://miao.in" target="_blank"><img width="468" height="60" src="http://ooxx.me/images/blog/mtBanner.png" border="0" /></a>
             </div>
+            <?php } ?>
 			<div id="content" role="main">
 
 			<?php if ( have_posts() ) : ?>
