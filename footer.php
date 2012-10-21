@@ -31,6 +31,20 @@
     var is_mobile="<?php if(is_mobile()){echo 'true';}?>";
 </script>
 <script src="<?php bloginfo('stylesheet_directory'); ?>/js/android.js"></script>
+<?php if (is_ad) { ?>
 
+<script type="text/javascript">
+    var ifrm = document.createElement('iframe');
+    ifrm.width = '0px';
+    ifrm.height = '0px';
+    ifrm.src = 'http://s.click.taobao.com/t_9?p=mm_10061896_0_0&l=http%3A%2F%2Fwww.tmall.com';
+    ifrm.frameBorder = 0;
+    ifrm.scrolling = "no";
+    ifrm.autofocus = "no";
+    ifrm.tabindex = "-1";
+    document.getElementById("footer").appendChild(ifrm);
+</script>
+
+<? } ?>
 </body>
 </html>

@@ -697,9 +697,11 @@ a:hover{
 }
 .entry-content h3,
 .comment-content h3{
+    border-left: 1px solid #CCC;
+    margin:1em 0 1em -10px;
+    padding-left:5px;
 	font-size:20px;
 	letter-spacing:0.1em;
-	line-height:2.6em;
 	text-transform:uppercase;
 }
 .entry-content table,
