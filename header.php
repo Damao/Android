@@ -51,7 +51,7 @@
     <link rel="profile" href="http://gmpg.org/xfn/11"/>
     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>"/>
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>"/>
-
+    <?php if (is_ad) { ?>
     <script type="text/javascript">
 
         var _gaq = _gaq || [];
@@ -65,7 +65,7 @@
         })();
 
     </script>
-
+    <? } ?>
     <!--[if lt IE 9]>
     <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
     <![endif]-->
@@ -125,7 +125,13 @@
                 <div class="mid">
                     <div class="header">Pages</div>
                     <ul>
-                        <?php wp_list_pages('title_li='); ?>
+                        <?php
+                        if(is_ad){
+                            wp_list_pages('title_li=&exclude=2206');
+                        }else{
+                            wp_list_pages('title_li=');
+                        }
+                        ?>
                     </ul>
                     <div class="header">RSS</div>
                     <ul>
