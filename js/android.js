@@ -127,7 +127,7 @@ $('#commentform').submit(function () {
                     $("#ajax-comment-info").fadeOut();
                 }, 3000);
             } else {
-                infodiv.html('<div class="ajax-error" >服务器脑瘫,请再试一次.</div>');
+                infodiv.html('<div class="ajax-error" >服务器脑瘫,八成被 Akismet 君跳大,请歇会儿再试.</div>');
             }
         }
     });
