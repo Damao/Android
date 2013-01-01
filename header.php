@@ -26,6 +26,7 @@
 <!--<![endif]-->
 <head>
     <meta charset="<?php bloginfo('charset'); ?>"/>
+    <?php author_meta(); ?>
     <meta name="viewport" content="width=device-width"/>
     <title><?php
         /*
