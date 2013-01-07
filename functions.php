@@ -1,6 +1,4 @@
 <?php
-
-
 $is_ad = false; // 庙的广告,默认关闭
 
 function console($log){
@@ -9,10 +7,25 @@ function console($log){
 EOF;
 }
 
-function author_meta(){
+function ad_header(){
     global $is_ad;
     if($is_ad){
-        echo '<link rel="author" href="https://plus.google.com/116860638371403168572/posts" />';
+        echo <<<EOF
+            <link rel="author" href="https://plus.google.com/116860638371403168572" />
+                <script type="text/javascript">
+
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-6006493-1']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+
+            </script>
+EOF;
     }
 }
 
