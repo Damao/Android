@@ -489,8 +489,34 @@ body {
 	text-rendering: optimizeLegibility;
 	color: #444;
 }
+/* Font */
+@font-face {
+	font-family: 'Android';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Android'), local('Android'), url(font/normal.woff) format('woff');
+}
+@font-face {
+	font-family: 'Android';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Android Bold'), local('Android-Bold'), url(font/bold.woff) format('woff');
+}
+@font-face {
+	font-family: 'Android';
+	font-style: italic;
+	font-weight: 400;
+	src: local('Android Italic'), local('Android-Italic'), url(font/italic.woff) format('woff');
+}
+@font-face {
+	font-family: 'Android';
+	font-style: italic;
+	font-weight: 700;
+	src: local('Android Bold Italic'), local('Android-BoldItalic'), url(font/italic-bold.woff) format('woff');
+}
+
 body.custom-font-enabled {
-	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+	font-family: "Android", Helvetica, Arial, sans-serif;
 }
 a {
 	outline: none;
