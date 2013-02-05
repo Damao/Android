@@ -38,7 +38,7 @@
 
         <div class="fn_search" id="search-container">
             <form method="get" id="searchform" action="<?php echo esc_url(home_url('/')); ?>">
-                <div class="ui_input"><input type="text" value="" autocomplete="off" placeholder="<?php esc_attr_e('Search', 'android'); ?>" name="s" id="s" /><ul class="search_filtered" id="search_filtered"></ul> </div>
+                <div class="ui_input"><input type="text" value="" autocomplete="off" placeholder="<?php esc_attr_e('Search', 'android'); ?>" name="s" id="s" speech="" x-webkit-speech="" /><ul class="search_filtered" id="search_filtered"></ul> </div>
                 <input type="submit" class="submit ui_button" name="submit" id="searchsubmit" value="<?php esc_attr_e('Search', 'android'); ?>"/>
             </form>
         </div>
