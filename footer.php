@@ -27,6 +27,6 @@
     var home_url="<?php echo esc_url(home_url('/')); ?>";
     var is_mobile="<?php if(is_mobile()){echo 'true';}?>";
 </script>
-<script src="<?php bloginfo('stylesheet_directory'); ?>/js/android.js?201302051306"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/js/android.js?201302051332"></script>
 </body>
 </html>

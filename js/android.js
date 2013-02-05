@@ -277,7 +277,7 @@ $(document).scroll(function () {
 	} else {
 		$('#fn_article_nav').css({'position': 'absolute', 'right': 0, 'top': '10px'});
 	}
-	if ($(this).scrollTop() + $(window).height() > secondary_top + secondary_height && secondary_height < primary_height) {
+	if ($(this).scrollTop() + $(window).height() > secondary_top + secondary_height && secondary_height < primary_height && !is_mobile) {
 		$('#secondary').css({
 			'position': 'fixed',
 			'left': secondary_left,
