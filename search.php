@@ -3,68 +3,57 @@
  * The template for displaying Search Results pages.
  *
  * @package WordPress
- * @subpackage Twenty_Eleven
- * @since Android 1.0
+ * @subpackage Twenty_Twelve
+ * @since Twenty Twelve 1.0
  */
+    if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
+        $array_posts = array ();
+        if (have_posts()) :
+             while (have_posts()) : the_post();
+                 array_push($array_posts, array("title"=>get_the_title(),"url"=>get_permalink()));
+             endwhile;
+        endif;
+        echo json_encode($array_posts);
+    } else {
 
-if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
-    if (have_posts()) : ?>
-        [
-    <?php while (have_posts()) : the_post(); ?>
-        ["<?php the_title()?>","<?php the_permalink()?>"],
-        <?php endwhile; ?>
-[]]
-    <?php else : ?>
-    []
-    <?php endif;
-} else {
-    get_header(); ?>
+get_header(); ?>
 
-<section id="primary">
-    <div id="content" role="main">
+	<section id="primary" class="site-content">
+		<div id="content" role="main">
 
-        <?php if (have_posts()) : ?>
+		<?php if ( have_posts() ) : ?>
 
-        <header class="page-header">
-            <h1 class="page-title"><?php printf(__('Search Results for: %s', 'android'), '<span>' . get_search_query() . '</span>'); ?></h1>
-        </header>
+			<header class="page-header">
+				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'twentytwelve' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+			</header>
 
-        <?php android_content_nav('nav-above'); ?>
+			<?php twentytwelve_content_nav( 'nav-above' ); ?>
 
-        <?php /* Start the Loop */ ?>
-        <?php while (have_posts()) : the_post(); ?>
+			<?php /* Start the Loop */ ?>
+			<?php while ( have_posts() ) : the_post(); ?>
+				<?php get_template_part( 'content', get_post_format() ); ?>
+			<?php endwhile; ?>
 
-            <?php
-            /* Include the Post-Format-specific template for the content.
-                            * If you want to overload this in a child theme then include a file
-                            * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-                            */
-            get_template_part('content', get_post_format());
-            ?>
+			<?php twentytwelve_content_nav( 'nav-below' ); ?>
 
-            <?php endwhile; ?>
+		<?php else : ?>
 
-        <?php android_content_nav('nav-below'); ?>
+			<article id="post-0" class="post no-results not-found">
+				<header class="entry-header">
+					<h1 class="entry-title"><?php _e( 'Nothing Found', 'twentytwelve' ); ?></h1>
+				</header>
 
-        <?php else : ?>
+				<div class="entry-content">
+					<p><?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'twentytwelve' ); ?></p>
+					<?php get_search_form(); ?>
+				</div><!-- .entry-content -->
+			</article><!-- #post-0 -->
 
-        <article id="post-0" class="post no-results not-found">
-            <header class="entry-header">
-                <h1 class="entry-title"><?php _e('Nothing Found', 'android'); ?></h1>
-            </header>
-            <!-- .entry-header -->
+		<?php endif; ?>
 
-            <div class="entry-content">
-                <p><?php _e('Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'android'); ?></p>
-            </div>
-            <!-- .entry-content -->
-        </article><!-- #post-0 -->
+		</div><!-- #content -->
+	</section><!-- #primary -->
 
-        <?php endif; ?>
-
-    </div>
-    <!-- #content -->
-</section><!-- #primary -->
-
+<?php get_sidebar(); ?>
 <?php get_footer();
-} ?>
+    }?>

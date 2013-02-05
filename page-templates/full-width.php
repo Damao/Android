@@ -1,11 +1,13 @@
 <?php
 /**
- * The template for displaying all pages.
+ * Template Name: Full-width Page Template, No Sidebar
  *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site will use a
- * different template.
+ * Description: Twenty Twelve loves the no-sidebar look as much as
+ * you do. Use this page template to remove the sidebar from any page.
+ *
+ * Tip: to remove the sidebar from all posts and pages simply remove
+ * any active widgets from the Main Sidebar area, and the sidebar will
+ * disappear everywhere.
  *
  * @package WordPress
  * @subpackage Twenty_Twelve
@@ -25,5 +27,4 @@ get_header(); ?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
