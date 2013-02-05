@@ -647,7 +647,7 @@ function article_nav($content)
             $ul_li .= '<li><a href="#article_nav_' . $num . '" title="' . $title . '">' . $title . "</a></li>\n";
         }
         if (is_singular()) {
-            $content = '<ul id="fn_article_nav">'
+            $content = '<ul id="fn_article_nav"><li><a href="#top">返回顶部</a></li>'
                 . $ul_li . '</ul>' . $content;
         }
     }
