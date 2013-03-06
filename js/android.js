@@ -1,4 +1,4 @@
-var input_search, commentform, is_admin_bar, fn_article_nav_right, fn_article_nav_top, secondary_top, secondary_left, secondary_height, primary_height, colophon_height;
+var input_search, commentform, is_admin_bar, fn_article_nav_right, fn_article_nav_top,has_secondary, secondary_top, secondary_left, secondary_height, primary_height, colophon_height;
 function init() {
 	input_search = $("#s");
 	commentform = $('#commentform');
@@ -7,9 +7,14 @@ function init() {
 	if ($('#fn_article_nav')[0]) {
 		fn_article_nav_top = $('body').hasClass('admin-bar') ? $('#fn_article_nav').offset().top - 28 : $('#fn_article_nav').offset().top;
 	}
-	secondary_top = $('#secondary').offset().top;
-	secondary_left = $('#secondary').offset().left;
-	secondary_height = $('#secondary').height();
+    if($('#secondary')[0]){
+        secondary_top = $('#secondary').offset().top;
+        secondary_left = $('#secondary').offset().left;
+        secondary_height = $('#secondary').height();
+        has_secondary=true;
+    }else{
+        has_secondary=false;
+    }
 	primary_height = $('#primary').height();
 	colophon_height = $(document).height() - $('#colophon').height() - $('#colophon').offset().top;
 }
@@ -277,17 +282,19 @@ $(document).scroll(function () {
 	} else {
 		$('#fn_article_nav').css({'position': 'absolute', 'right': 0, 'top': '10px'});
 	}
-	if ($(this).scrollTop() + $(window).height() > secondary_top + secondary_height && secondary_height < primary_height && !is_mobile) {
-		$('#secondary').css({
-			'position': 'fixed',
-			'left': secondary_left,
-			'top': $(window).height() - secondary_height - colophon_height
-		})
-	} else {
-		$('#secondary').css({
-			'position': 'relative',
-			'left': 0,
-			'top': 0
-		})
-	}
+    if(has_secondary){
+        if ($(this).scrollTop() + $(window).height() > secondary_top + secondary_height && secondary_height < primary_height && !is_mobile) {
+            $('#secondary').css({
+                'position': 'fixed',
+                'left': secondary_left,
+                'top': $(window).height() - secondary_height - colophon_height
+            })
+        } else {
+            $('#secondary').css({
+                'position': 'relative',
+                'left': 0,
+                'top': 0
+            })
+        }
+    }
 });
