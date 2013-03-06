@@ -1800,6 +1800,8 @@ footer[role="contentinfo"]{padding:10px 0}
 #respond form p.form-allowed-tags{display:none;}
 #respond form input[type="text"] { width: 100%; }
 #respond form textarea.blog-textarea { width: 100%; }
+.comments-area article header{margin-bottom: 10px;}
+.comments-area .edit-link{float:right;}
  /*ajax*/
 @-webkit-keyframes progressPulse { from { background-color:rgba(250,255,103, .3); -webkit-box-shadow: 0 0 9px rgba(250,255,103, .2); } 50% { background-color: rgba(250,255,103, .7); -webkit-box-shadow: 0 0 18px rgba(250,255,103, .7); } to { background-color: rgba(250,255,103, .3); -webkit-box-shadow: 0 0 9px rgba(250,255,103, .2); } }
 @-webkit-keyframes errorPulse { from { background-color:rgba(242, 203, 206, .3); -webkit-box-shadow: 0 0 9px rgba(242, 203, 206, .2); } 50% { background-color: rgba(242, 203, 206, .7); -webkit-box-shadow: 0 0 18px rgba(242, 203, 206, .7); } to { background-color: rgba(242, 203, 206, .3); -webkit-box-shadow: 0 0 9px rgba(242, 203, 206, .2); } }
