@@ -1784,8 +1784,11 @@ footer[role="contentinfo"]{padding:10px 0}
 	margin-left:-7px;
 }
 .entry-content{position: relative}/*为 fn_article_nav 定位*/
-#fn_article_nav{position:absolute;right:0;top:10px;background-color:rgba(255,255,255,.55);border-radius: 3px;}
-#fn_article_nav li{ list-style: none;padding:3px;max-width:200px;margin:0;}
+#fn_article_nav{position:absolute;right:0;top:10px;background-color:rgba(255,255,255,.8);border-radius: 3px;opacity: .1;z-index: 1;}/*z-index for comment area*/
+#fn_article_nav:hover{opacity: 1;}
+#fn_article_nav li{ list-style: none;padding:3px;max-width:90px;margin:0;font-size:12px;border-left: 2px solid #FFF;}
+#fn_article_nav li:hover{border-left: 2px solid #33B5E5;background-color:rgba(255,255,255,.3);}
+#fn_article_nav li a:hover{text-decoration: none;}
 /*search*/
 .fn_search{text-align: center;}
 .fn_search .search_filtered{ background-color:rgba(255, 255, 255, .95); position:absolute; top:102%; left:0; z-index:200;text-align: left;}
@@ -1810,4 +1813,10 @@ footer[role="contentinfo"]{padding:10px 0}
 @media screen and (min-width: 600px) {
 	.site-header h1{float:left;}
 	.site-header .fn_search{float:right;}
+}
+@media screen and (min-width: 1200px) {
+    body .site {
+        max-width: 1200px;
+        max-width: 85.7142857137rem;
+    }
 }
