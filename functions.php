@@ -639,12 +639,13 @@ function article_nav($content)
     $matches = array();
     $ul_li = '';
 
-    $r = "/<h2>(.*?)<\\/h2>/im";
+    $r = "/<h2(.*?)<\\/h2>/im";
 
     if (preg_match_all($r, $content, $matches)) {
         foreach ($matches[1] as $num => $title) {
-            $title_txt = preg_replace('/<.*?>/', '', $title);
-            $content = str_replace($matches[0][$num], '<h2 id="article_nav_' . $num . '">' . $title . '</h2>', $content);
+            $title_txt = preg_replace('/.*?>/', '', $title);
+            $title_txt = preg_replace('/<.*?>/', '', $title_txt);
+            $content = str_replace($matches[0][$num], '<h2 id="article_nav_' . $num . '"' . $title . '</h2>', $content);
             $ul_li .= '<li><a href="#article_nav_' . $num . '" title="' . $title_txt . '">' . $title_txt . "</a></li>\n";
         }
         if (is_singular()) {
