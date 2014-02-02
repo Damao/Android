@@ -8,7 +8,7 @@ $().ready(function () {
 		fn_article_nav_right = $(window).width() - ($('#content').offset().left + $('#content').outerWidth());
 		if ($('#fn_article_nav')[0]) {
 			fn_article_nav_top = $('body').hasClass('admin-bar') ? $('#fn_article_nav').offset().top - 28 : $('#fn_article_nav').offset().top;
-			$("#fn_article_nav_toggle").click(function () {
+			$("#fn_article_nav_toggle").bind("click",function () {
 				$("#fn_article_nav").toggleClass("fn_article_nav_toggle");
 				return false;
 			});
