@@ -650,7 +650,7 @@ function article_nav($content)
             $ul_li .= '<li><a href="#article_nav_' . $num . '" title="' . $title_txt . '">' . $title_txt . "</a></li>\n";
         }
         if (is_singular()) {
-            $content = $content.'<ul id="fn_article_nav"><li><a href="#top">返回顶部</a></li>'
+            $content = $content.'<ul id="fn_article_nav"><li><a href="#" id="fn_article_nav_toggle">展开导航</a></li><li><a href="#top">返回顶部</a></li>'
                 . $ul_li . '</ul>';
         }
     }
