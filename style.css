@@ -875,6 +875,10 @@ article.sticky .featured-post {
 	font-size: 12px;
 	font-size: 0.857142857rem;
 	line-height: 2;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding:1px;
 }
 .entry-content pre,
 .comment-content pre {
